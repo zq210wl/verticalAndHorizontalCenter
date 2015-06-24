@@ -3,7 +3,7 @@
   * 多个元素的水平垂直居中
 
 ## 详细请看
-  * sample.html
+  * sample.html (在浏览器中打开此页面)
 
 ## 预览
 ![](preview.png)
