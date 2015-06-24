@@ -1,0 +1,212 @@
+/************ 单个元素的水平垂直居中 ************/
+
+/* 方法 1 */
+.container1 {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 1px solid #000;
+  color: #fff;
+}
+.container1 .child1 {
+  position: absolute;
+  width: 280px;
+  height: 140px;
+  top: 50%;
+  left: 50%;
+  margin-left: -140px;
+  margin-top: -70px;
+  background: #000;
+}
+
+/* 方法 2 */
+.container2 {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 1px solid #000;
+  color: #fff;
+}
+.container2 .child2 {
+  position: absolute;
+  width: 280px;
+  height: 140px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #000;
+}
+
+/* 方法 3 */
+.container3 {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 1px solid #000;
+  color: #fff;
+}
+.container3 .child3 {
+  position: absolute;
+  width: 280px;
+  height: 140px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: #000;
+}
+
+/* 方法 4 */
+.container4 {
+  width: 400px;
+  height: 200px;
+  border: 1px solid #000;
+  color: #fff;
+}
+.container4 .inner-table {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.container4 .inner-table .inner-cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.container4 .inner-table .inner-cell .child4 {
+  width: 280px;
+  height: 140px;
+  display: inline-block;
+  text-align: left;
+  background: #000;
+}
+
+/* 方法 5 */
+.container5 {
+  width: 400px;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  border: 1px solid #000;
+  color: #fff;
+}
+.container5 .child5 {
+  vertical-align: middle; /*针对img或*inline-block元素设置*/
+  background: #000;
+}
+
+/* 方法 6 */
+.container6 {
+  width: 400px;
+  height: 200px;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  border: 1px solid #000;
+  color: #fff;
+}
+.container6 .child6 {
+  background: #000;
+}
+
+/* 方法 7 */
+.container7 {
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  border: 1px solid #000;
+  color: #fff;
+}
+.container7:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.container7 .child7 {
+  display: inline-block;
+  vertical-align: middle;
+  background: #000;
+}
+
+/************ 多个元素的水平垂直居中 ************/
+
+/* 方法 1 */
+.container-multiple1 {
+  width: 400px;
+  height: 200px;
+  border: 1px solid #000;
+  color: #fff;
+}
+.container-multiple1 .inner-table{
+  height: 100%;
+  display: table;
+  margin: 0 auto;
+  font-size: 0;
+}
+.container-multiple1 .inner-table .inner-cell{
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.container-multiple1 .inner-table .inner-cell .child-1{
+  width: 30px;
+  height: 50px;
+  display: inline-block;
+  background: #000;
+}
+.container-multiple1 .inner-table .inner-cell .child-2{
+  width: 30px;
+  height: 100px;
+  display: inline-block;
+  background: #000;
+}
+.container-multiple1 .inner-table .inner-cell .child-3{
+  width: 60px;
+  height: 150px;
+  display: inline-block;
+  background: #000;
+}
+
+/* 方法 2 */
+.container-multiple2 {
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  font-size: 0;
+  border: 1px solid #000;
+  color: #fff;
+}
+.container-multiple2:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.container-multiple2 .child-1 {
+  width: 30px;
+  height: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  background: #000;
+}
+.container-multiple2 .child-2 {
+  width: 30px;
+  height: 100px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  background: #000;
+}
+.container-multiple2 .child-3 {
+  width: 60px;
+  height: 150px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  background: #000;
+}

@@ -1,0 +1,379 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>垂直水平居中的N中方法</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style type="text/css">
+      .helperContainer{
+        position:relative;
+      }
+      .helperContainer .pre1{
+        position:absolute;
+        top:-5px;
+        left:420px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .helperContainer .pre2{
+        position:absolute;
+        top:-5px;
+        left:630px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .helperContainer .pre3{
+        position:absolute;
+        top:-5px;
+        left:850px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .helperContainer .pre4{
+        position:absolute;
+        top:100px;
+        left:420px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .notice{
+        width: 600px;
+        margin-top:10px;
+        background: #000;
+      }
+      .notice pre{
+        color: #fff;
+        padding:0;
+        margin:0;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>单个元素的水平垂直居中</h3>
+    <!-- 方法 1 -->
+    <div class="helperContainer">
+      <div class="container1">
+        <div class="child1">
+          1.必须要设置居中元素的宽高; <br>
+          2.宽高变化后margin也要做相应改变.<br>
+          3.适应所有浏览器.
+        </div>
+      </div>
+      <pre class="pre1">
+        .container {
+          position: relative;
+          width: 400px;
+          height: 200px;
+        }
+      </pre>
+      <pre class="pre2">
+        .container .child {
+          position: absolute;
+          width: 280px;
+          height: 140px;
+          top: 50%;
+          left: 50%;
+          margin-left: -140px;
+          margin-top: -70px;
+        }
+      </pre>
+    </div>
+
+    <!-- 方法 2 -->
+    <div class="helperContainer">
+      <div class="container2">
+        <div class="child2">
+          1.必须要设置居中元素的宽高或为图片;<br>
+          2.宽高变化后, margin值不需要跟着改变.<br>
+          3.不支持IE6、IE7.
+        </div>
+      </div>
+      <pre class="pre1">
+        .container {
+          position: relative;
+          width: 400px;
+          height: 200px;
+        }
+      </pre>
+      <pre class="pre2">
+        .container .child {
+          position: absolute;
+          width: 280px;
+          height: 140px;
+          margin: auto;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+        }
+      </pre>
+    </div>
+
+    <!-- 方法 3 -->
+    <div class="helperContainer">
+      <div class="container3">
+        <div class="child3">
+         1.方法 1 的演变;<br>
+         2.只是将margin属性变成了translate(-50%,-50%);<br>
+         3.宽高变化后, margin值也不需要跟着改变;<br>
+         4.IE9以下不支持，适合移动端。
+        </div>
+      </div>
+      <pre class="pre1">
+        .container {
+          position: relative;
+          width: 400px;
+          height: 200px;
+        }
+      </pre>
+      <pre class="pre2">
+        .container .child {
+          position: absolute;
+          width: 280px;
+          height: 140px;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+      </pre>
+    </div>
+
+    <!-- 方法 4 -->
+    <div class="helperContainer">
+      <div class="container4">
+        <div class="inner-table">
+          <div class="inner-cell">
+            <div class="child4">
+              1.要多加两层标签:inner-table和inner-cell;<br>
+              2.要居中的元素必须为inline或inline-block; 如果为block元素，则需设置margin:0 auto;<br>
+              3.inner-cell元素和要居中的元素都不能设置float;<br>
+              4.不支持IE6、IE7.
+            </div>
+          </div>
+        </div>
+      </div>
+      <pre class="pre1">
+        .container {
+          width: 400px;
+          height: 200px;
+        }
+      </pre>
+      <pre class="pre2">
+        .container .inner-table {
+          display: table;
+          width: 100%;
+          height: 100%;
+        }
+      </pre>
+      <pre class="pre3">
+        .container .inner-table .inner-cell {
+          width: 280px;
+          height: 140px;
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+        }
+      </pre>
+      <pre class="pre4">
+        .container .inner-table .inner-cell .child {
+          width: 280px; height: 140px;
+          display: inline-block;
+        }
+      </pre>
+    </div>
+
+    <!-- 方法 5 -->
+    <div class="helperContainer">
+      <div class="container5">
+        <span class="child5">
+          只能针对inline元素或inline-block元素
+        </span>
+      </div>
+      <pre class="pre1">
+        .container {
+          width: 400px;
+          height: 200px;
+          line-height: 200px;
+          text-align: center;
+        }
+      </pre>
+      <pre class="pre2">
+        .container .child {
+          display: inline/inline-block;
+          vertical-align: middle; /*针对img或*inline-block元素设置/
+        }
+      </pre>
+    </div>
+
+    <!-- 方法 6 -->
+    <div class="helperContainer">
+      <div class="container6">
+        <div class="child6">
+          1.任何元素都可以。<br>
+          2.只要设置父级元素的属性就可以。<br>
+          3.只兼容支持display:box的浏览器。<br>
+          4.此demo只兼容了webkit浏览器;适合移动端。
+        </div>
+      </div>
+      <pre class="pre1">
+        .container {
+          width: 400px;
+          height: 200px;
+          display: -webkit-box;
+          -webkit-box-pack: center;
+          -webkit-box-align: center;
+        }
+      </pre>
+      <pre class="pre2">
+        .container .child {
+          /* Anyway, I don't care. */
+        }
+      </pre>
+    </div>
+
+    <!-- 方法 7 -->
+    <div class="helperContainer">
+      <div class="container7">
+        <div class="child7">
+          1.用vertical属性来设置所有内以中线对齐。<br>
+          2.用:before添加一个content对设置100%高度。
+        </div>
+      </div>
+      <pre class="pre1">
+        .container {
+          width: 400px;
+          height: 200px;
+          text-align: center;
+        }
+      </pre>
+      <pre class="pre2">
+        .container:before {
+          content: '';
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+        }
+      </pre>
+      <pre class="pre3">
+        .container .child {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      </pre>
+
+    <h3>多个元素的水平垂直居中</h3>
+
+    <!-- 方法 1 -->
+    <div class="helperContainer">
+      <div class="container-multiple1">
+        <div class="inner-table">
+          <div class="inner-cell">
+            <div class="child-1">
+
+            </div>
+          </div>
+          <div class="inner-cell">
+            <div class="child-2">
+
+            </div>
+          </div>
+          <div class="inner-cell">
+            <div class="child-3">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <pre class="pre1">
+      &lt;div class="container"&gt;
+        &lt;div class="inner-table"&gt;
+            &lt;div class="inner-cell"&gt;
+              &lt;div class="child-1"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="inner-cell"&gt;
+              &lt;div class="child-2"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      </pre>
+      <pre class="pre2" style="left:720px;">
+        .inner-table{
+          height: 100%; /*垂直居中*/
+          display: table;
+          margin: 0 auto; /*水平居中*/
+          font-size: 0;
+        }
+      </pre>
+      <pre class="pre3" style="left:970px;">
+        .inner-table .inner-cell{
+          display: table-cell;
+          vertical-align: middle;
+          padding-right: 10px;
+        }
+      </pre>
+    </div>
+
+    <!-- 方法 2 -->
+    <div class="helperContainer">
+      <div class="container-multiple2">
+        <div class="child-1">
+
+        </div>
+        <div class="child-2">
+
+        </div>
+        <div class="child-3">
+
+        </div>
+      </div>
+      <pre class="pre1">
+        &lt;div class="container"&gt;
+          &lt;div class="child-1"&gt;&lt;/div&gt;
+          &lt;div class="child-2"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      </pre>
+      <pre class="pre2" style="left:720px;">
+        .container {
+          width: 400px;
+          height: 200px;
+          text-align: center;
+          /*解决inline-block
+          元素间的空白*/
+          font-size: 0;
+        }
+      </pre>
+      <pre class="pre3" style="left:970px;">
+        .container:before {
+          content: '';
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+        }
+        .container .child {
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 10px;
+        }
+      </pre>
+<!-- 注意事项 -->
+    <div class="notice">
+      <pre>
+一些需要注意的事项：
+1.{margin:0 auto} 实现水平居中分以下三种情况：
+  (1)【block元素】必须设置宽度;
+  (2)【img】必须设置display:block,可以不设置宽度;
+  (3)【table】可以不设置宽度;
+      1)因此，不知到宽度的元素可以通过设置{display:table}来实现
+
+2.多个inline-block元素间会出现多余的空白：
+  (1)原因：空白是inline-block元素间的回车字符造成的
+  (2)解决：设置父级元素的font-size:0
+      </pre>
+    </div>
+  </body>
+</html>
